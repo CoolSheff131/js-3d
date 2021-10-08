@@ -164,3 +164,11 @@ header{
 }
 
 /* KeyFrames */
+@keyframes main-animation {
+    from{
+        transform: translate(0);
+    }
+    to{
+        transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+}
