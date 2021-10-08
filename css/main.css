@@ -7,6 +7,71 @@
     font-family: "Poppins", sans-serif;
 }
 
+/* Navbar */
+.navbar{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    height: 0.3rem;
+}
+.menu{
+    max-width: 72rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+
+}
+.logo{
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 4rem;
+}
+
+.logo > span{
+    font-weight: 300;
+}
+
+.burger{
+    height: 4rem;
+    width: 3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.bar{
+    width: 1.9rem;
+    height: 1.5px;
+    border-radius: 2px;
+    background-color: #eee;
+    transition: .3s;
+    position: relative;
+}
+
+.bar::after,
+.bar::before{
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: #eee;
+    transition: .5s;
+}
+.bar::after{
+    transform: translateY(9px);
+}
+.bar::before{
+    transform: translateY(-9px);
+}
 /* Page */
 
 .container{
@@ -71,3 +136,31 @@ header{
     cursor: pointer;
     text-decoration: none;
 }
+
+/* Animation */
+
+.container.active .bar{
+    transform: rotate(360deg);  
+    background-color: transparent;
+
+}
+.container.active .bar::before{
+    transform: translateY(0) rotate(45deg);
+}
+.container.active .bar::after{
+    transform: translateY(0) rotate(-45deg);
+}
+
+
+.container.active .main{
+    animation: main-animation 1s ease;
+    cursor: pointer;
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+
+}
+
+.container.active .main:hover{
+
+}
+
+/* KeyFrames */
